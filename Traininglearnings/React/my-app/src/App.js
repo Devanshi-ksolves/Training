@@ -100,3 +100,32 @@ function MyButton({ count, onClick }) {
     <button onClick={onClick}>click {count} time</button>
   );
 }
+
+//class component extend React.Component. They must include a render() method that returns JSX. They manage state using this.state and update state using this.setState().
+//Functional Components: Initially, they were stateless. However, with the introduction of Hooks (like useState), functional components can now manage state.
+
+
+//State represents data that can change over time within a component. It is local to the component and can be updated dynamically, triggering a re-render of the component.
+//Used in functional components via the useState hook.
+const Counter = () => {
+  const [count, setCount] = useState(0);
+
+  return <button onClick={() => setCount(count + 1)}>{count}</button>;
+};
+
+//Props (short for properties) are read-only data passed from a parent component to a child component. They help make components reusable and allow communication between components.
+//Props are used to pass data or event handlers from a parent component down to child components.
+function MyButton({ count, onClick }) {
+  return (
+    <button onClick={onClick}>click {count} time</button>
+  );
+}
+
+//Error boundaries are React components that catch JavaScript errors anywhere in their child component tree, log those errors, and display a fallback UI instead of the component tree that crashed. Error boundaries catch errors during rendering, in lifecycle methods, and in constructors of the whole tree below them.
+//A class component becomes an error boundary if it defines either (or both) of the lifecycle methods static getDerivedStateFromError() or componentDidCatch(). Use static getDerivedStateFromError() to render a fallback UI after an error has been thrown. Use componentDidCatch() to log error information.
+//Note that error boundaries only catch errors in the components below them in the tree.An error boundary can’t catch an error within itself. 
+//Error boundaries are particularly useful for catching runtime errors in production to ensure the app stays functional, even if some part fails.
+
+<ErrorBoundary>
+  <MyComponent />
+</ErrorBoundary>
