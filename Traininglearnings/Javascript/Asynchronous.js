@@ -118,3 +118,6 @@ function sendAutoEmail(to) {
 let step1 = sendAutoEmail("devanshi");
 let step2 = step1("currynig");
 step2("Hii This is concept of currying");
+
+//babel -  It’s basically a JavaScript compiler that can convert JavaScript code containing the latest features to older versions of JavaScript.In short, Babel makes sure that latest features are properly compiled and rendered on every browser.it transforms the syntax of modern JavaScript into a version that’s understandable by old browsers.
+//Plugins: Babel plugins are individual packages that instruct Babel on how to carry out specific transformations. These can range from syntax changes to feature polyfills.Presets: A preset is a collection of plugins bundled together to achieve a broader set of transformations.
