@@ -129,3 +129,55 @@ function MyButton({ count, onClick }) {
 <ErrorBoundary>
   <MyComponent />
 </ErrorBoundary>
+
+import { CounterComponent } from './hooks';
+function App() {
+  return (
+    <div>
+      <h1>React Hooks Example</h1>
+      <h2>Counter Component (useReducer):</h2>
+      <CounterComponent />
+    </div>
+  );
+}
+
+// export default App;
+
+import React, { useContext } from 'react';
+import ThemeContext, { ThemeProvider } from './hooks';
+
+function ThemeToggleButton() {
+  const { theme, toggleTheme } = useContext(ThemeContext);
+
+  return (
+    <button onClick={toggleTheme} style={{ background: theme === 'light' ? '#eee' : '#333', color: theme === 'light' ? '#000' : '#fff' }}>
+      Toggle to {theme === 'light' ? 'Dark' : 'Light'} Theme
+    </button>
+  );
+}
+
+
+function App() {
+  return (
+    <ThemeProvider>
+      <div>
+        <h1>Context API with useContext Hook</h1>
+        <ThemeToggleButton />
+      </div>
+    </ThemeProvider>
+  );
+}
+
+// export default App;
+
+import { FocusInput } from './hooks';
+function App() {
+  return (
+    <div>
+      <h1>React Hooks Example</h1>
+      <FocusInput />
+    </div>
+  );
+}
+
+// export default App;
