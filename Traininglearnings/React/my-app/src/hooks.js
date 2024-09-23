@@ -119,3 +119,54 @@ const memoizedCallback = useCallback(() => {
     console.log('Button clicked');
     setCount(count + 1);
 }, [count]);
+
+//context-api- create a context
+const ThemeContexts = createContext();
+
+//create a provider
+function ThemeProvider({ children }) {
+    const [theme, setTheme] = useState('light');
+
+    return (
+        <ThemeContext.Provider value={{ theme, setTheme }}>
+            {children}
+        </ThemeContext.Provider>
+    );
+}
+
+//Consume Context with useContext
+function ThemedButton() {
+    const { theme, setTheme } = useContext(ThemeContext);
+
+    return (
+        <button
+            style={{ background: theme === 'light' ? '#fff' : '#333', color: theme === 'light' ? '#000' : '#fff' }}
+            onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+        >
+            Switch to {theme === 'light' ? 'Dark' : 'Light'} Theme
+        </button>
+    );
+}
+
+//Wrap Components with the Provider
+function App() {
+    return (
+        <ThemeProvider>
+            <div>
+                <h1>Theme Switcher</h1>
+                <ThemedButton />
+            </div>
+        </ThemeProvider>
+    );
+}
+
+// export default App;
+
+//the Context API handling global state creation and useContext simplifying how components access that state.
+
+
+
+//store
+//reducer
+//useSelector
+//useDispatch
